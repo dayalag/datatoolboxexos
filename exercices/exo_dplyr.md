@@ -1,7 +1,7 @@
 ---
 title: "Manipulation de données avec {dplyr}"
 author: "diego.ayala@ird.fr"
-date: "r Sys.Date()"
+date: "'r Sys.Date()'"
 output:
   html_document:
     keep_md: yes
