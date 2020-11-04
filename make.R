@@ -26,5 +26,10 @@ rmarkdown::render(here::here("exercices","exo_dplyr.Rmd"))
 # ----- Knit exo spatial
 rmarkdown::render(here::here("exercices","exo_ggplot.Rmd"))
 
-
+# ----- drake
+## Execute plan
+drake::r_make()
+## Visualize
+drake::r_vis_drake_graph(targets_only = TRUE)
+drake::r_vis_drake_graph()
 
