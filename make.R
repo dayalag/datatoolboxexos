@@ -23,9 +23,8 @@ devtools::install(build = FALSE)
 # ----- Knit exo dplyr
 rmarkdown::render(here::here("exercices","exo_dplyr.Rmd"))
 
-
 # ----- Knit exo spatial
-
+rmarkdown::render(here::here("exercices","exo_ggplot.Rmd"))
 
 
 
