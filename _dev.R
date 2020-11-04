@@ -12,6 +12,7 @@ usethis::use_r(name = "data_wildfinder.R")
 # add needed packages
 usethis::use_package("readr")
 usethis::use_package("here")
+usethis::use_package("visNetwork")
 
 rrtools::use_readme_rmd()
 

@@ -11,7 +11,7 @@ output:
 
 # Introduction
 
-Dans cet exercice nous allons utiliser le package `dplyr` pour nous instruire sur la biogéographie des ours.
+Dans cet exercice nous allons utiliser le package ggplot2 
 
 # Données
 

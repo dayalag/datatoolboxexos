@@ -1,0 +1,347 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={exo\_ggplot},
+  pdfauthor={Diego Ayala},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{exo\_ggplot}
+\author{Diego Ayala}
+\date{11/4/2020}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{ (forcats)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages ---------------------------------------- tidyverse 1.3.0 --
+\end{verbatim}
+
+\begin{verbatim}
+## v tibble  3.0.4     v purrr   0.3.4
+## v tidyr   1.1.2     v dplyr   1.0.2
+## v readr   1.3.1     v stringr 1.4.0
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------- tidyverse_conflicts() --
+## x tidyr::expand() masks drake::expand()
+## x dplyr::filter() masks datatoolboxexos::filter(), stats::filter()
+## x tidyr::gather() masks drake::gather()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\hypertarget{dataset}{%
+\subsection{Dataset}\label{dataset}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devtools}\OperatorTok{::}\KeywordTok{load_all}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading datatoolboxexos
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pantheria  <-}\StringTok{ }\NormalTok{datatoolboxexos}\OperatorTok{::}\KeywordTok{data_pantheria}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   .default = col_double(),
+##   MSW05_Order = col_character(),
+##   MSW05_Family = col_character(),
+##   MSW05_Genus = col_character(),
+##   MSW05_Species = col_character(),
+##   MSW05_Binomial = col_character(),
+##   References = col_character()
+## )
+\end{verbatim}
+
+\begin{verbatim}
+## See spec(...) for full column specifications.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat <-}\StringTok{ }\NormalTok{pantheria }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(                                    }\CommentTok{# Conversion de type}
+    \DataTypeTok{order   =} \KeywordTok{as_factor}\NormalTok{(MSW05_Order),}
+    \DataTypeTok{family  =} \KeywordTok{as_factor}\NormalTok{(MSW05_Family)}
+\NormalTok{  ) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{rename}\NormalTok{(                                    }\CommentTok{# Nom des colonnes}
+    \DataTypeTok{adult_bodymass =} \StringTok{`}\DataTypeTok{5-1_AdultBodyMass_g}\StringTok{`}\NormalTok{,}
+    \DataTypeTok{dispersal_age  =} \StringTok{`}\DataTypeTok{7-1_DispersalAge_d}\StringTok{`}\NormalTok{,}
+    \DataTypeTok{gestation      =} \StringTok{`}\DataTypeTok{9-1_GestationLen_d}\StringTok{`}\NormalTok{,}
+    \DataTypeTok{homerange      =} \StringTok{`}\DataTypeTok{22-2_HomeRange_Indiv_km2}\StringTok{`}\NormalTok{,}
+    \DataTypeTok{litter_size    =} \StringTok{`}\DataTypeTok{16-1_LittersPerYear}\StringTok{`}\NormalTok{,}
+    \DataTypeTok{longevity      =} \StringTok{`}\DataTypeTok{17-1_MaxLongevity_m}\StringTok{`}
+\NormalTok{  )}
+
+\NormalTok{dat <-}\StringTok{ }\NormalTok{dat }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(                                    }\CommentTok{# Sélection de colonnes}
+\NormalTok{    order,}
+\NormalTok{    family,}
+\NormalTok{    adult_bodymass,}
+\NormalTok{    dispersal_age,}
+\NormalTok{    gestation,}
+\NormalTok{    homerange,}
+\NormalTok{    litter_size,}
+\NormalTok{    longevity}
+\NormalTok{  ) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{na_if}\NormalTok{(}\OperatorTok{-}\DecValTok{999}\NormalTok{)    }
+
+
+\NormalTok{dat }\OperatorTok{%>%}\StringTok{ }\KeywordTok{View}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{explore}{%
+\subsection{Explore}\label{explore}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{count}\NormalTok{(order)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 29 x 2
+##    order               n
+##    <fct>           <int>
+##  1 Artiodactyla      240
+##  2 Carnivora         286
+##  3 Primates          376
+##  4 Didelphimorphia    87
+##  5 Cingulata          21
+##  6 Rodentia         2277
+##  7 Cetacea            84
+##  8 Erinaceomorpha     24
+##  9 Diprotodontia     143
+## 10 Chiroptera       1116
+## # ... with 19 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{count}\NormalTok{(family)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 153 x 2
+##    family            n
+##    <fct>         <int>
+##  1 Camelidae         4
+##  2 Canidae          35
+##  3 Bovidae         143
+##  4 Pitheciidae      40
+##  5 Didelphidae      87
+##  6 Dasypodidae      21
+##  7 Muridae         730
+##  8 Spalacidae       36
+##  9 Cricetidae      681
+## 10 Neobalaenidae     1
+## # ... with 143 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(homerange)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{mean}\NormalTok{(homerange))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   `mean(homerange)`
+##               <dbl>
+## 1              327.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(homerange)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(family) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{m =} \KeywordTok{mean}\NormalTok{(homerange), }\DataTypeTok{sd =} \KeywordTok{sd}\NormalTok{(homerange),}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 93 x 4
+##    family               m        sd     n
+##    <fct>            <dbl>     <dbl> <int>
+##  1 Camelidae    0.13       NA           1
+##  2 Canidae     49.6       176.         21
+##  3 Bovidae     44.6       159.         24
+##  4 Pitheciidae  0.8         1.27        7
+##  5 Didelphidae  0.0704      0.160      10
+##  6 Dasypodidae  1.38        2.14        4
+##  7 Muridae      0.00336     0.00839    35
+##  8 Spalacidae   0.0000732  NA           1
+##  9 Cricetidae   0.00305     0.00572    62
+## 10 Erinaceidae  0.0255      0.0306      4
+## # ... with 83 more rows
+\end{verbatim}
+
+\hypertarget{including-plots}{%
+\subsection{Including Plots}\label{including-plots}}
+
+\hypertarget{plot-1}{%
+\subsubsection{Plot 1}\label{plot-1}}
+
+\includegraphics{exo_ggplot_files/figure-latex/pressure-1.pdf}
+
+\hypertarget{plot-2}{%
+\subsubsection{Plot 2}\label{plot-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{()) }\CommentTok{# play around with theme}
+\NormalTok{dat }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(litter_size), }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(longevity)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(family) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# group by family}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# count the number of entries per family}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{longevity =}\NormalTok{ longevity }\OperatorTok{/}\StringTok{ }\DecValTok{12}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# Change month to year}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(n }\OperatorTok{>}\StringTok{ }\DecValTok{10}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# select only those families with more than 50 entries}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ longevity, }\DataTypeTok{y =}\NormalTok{ litter_size, }\DataTypeTok{col =}\NormalTok{ family) }\OperatorTok{+}\StringTok{ }\CommentTok{# scatter plot}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# se = TRUE to add confidence intervals}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Longevity"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add label for X axis}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Litter size"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add label for Y axis}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Scatterplot"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add title}
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{family, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{) }\CommentTok{# split in several panels,}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{exo_ggplot_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+                                 \CommentTok{# one for each family}
+                                 \CommentTok{# remove scale = 'free' for}
+                                 \CommentTok{# same scale for all plots}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}
