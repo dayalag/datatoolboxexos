@@ -1,0 +1,64 @@
+---
+title: "exo_5"
+author: "Diego Ayala"
+date: "11/4/2020"
+output: html_document
+  html_document:
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data explore
+
+
+
+```{r data exploration}
+
+#read PanTHERIA_1-0_WR05_Aug2008.txt
+dat <- datatoolboxexos::
+
+
+dat <- pantheria %>%
+  mutate(                                    # Conversion de type
+    order   = as_factor(MSW05_Order),
+    family  = as_factor(MSW05_Family)
+  ) %>%
+  rename(                                    # Nom des colonnes
+    adult_bodymass = `5-1_AdultBodyMass_g`,
+    dispersal_age  = `7-1_DispersalAge_d`,
+    gestation      = `9-1_GestationLen_d`,
+    homerange      = `22-2_HomeRange_Indiv_km2`,
+    litter_size    = `16-1_LittersPerYear`,
+    longevity      = `17-1_MaxLongevity_m`
+  )
+
+
+dat <- dat %>%
+  select(                                    # Sélection de colonnes
+    order,
+    family,
+    adult_bodymass,
+    dispersal_age,
+    gestation,
+    homerange,
+    litter_size,
+    longevity
+  ) %>%
+  na_if(-999)
+
+dat %>% View()
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
